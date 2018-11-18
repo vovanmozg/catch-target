@@ -1,0 +1,33 @@
+<html>
+<head>
+
+<script>
+var co = 0;
+window.transgressive = function() {
+co++;
+var cat = document.getElementById("cat");
+var w = window.innerWidth-100;
+var h = window.innerHeight-100;
+
+cat.style.top=Math.floor(Math.random()*h)+"px";
+cat.style.left=Math.floor(Math.random()*w)+"px";
+cat.innerText = co
+}
+</script>
+
+<style>
+#cat {
+  width:100px;
+height:100px;
+background-color:green;
+top:50px;
+position:relative;
+}
+</style>
+</head>
+<body>
+<div id="cat" onclick="transgressive()">
+
+</div>
+</body>
+</html>
