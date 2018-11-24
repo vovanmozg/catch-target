@@ -1,40 +1,49 @@
 <html>
 <head>
-
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-    <script>
-      document.body.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-      }, false);
-
-      var co = 0;
-      window.transgressive = function () {
-        co++;
-        var cat = document.getElementById("cat");
-        var w = window.innerWidth - 100;
-        var h = window.innerHeight - 100;
-
-        cat.style.top = Math.floor(Math.random() * h) + "px";
-        cat.style.left = Math.floor(Math.random() * w) + "px";
-        cat.innerText = co
-      }
-    </script>
-
     <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+        }
+        #container {
+            height: 100%;
+            width: 100%;
+        }
         #cat {
             width: 100px;
             height: 100px;
             background-color: green;
-            top: 50px;
             position: relative;
         }
     </style>
 </head>
 <body>
-<div id="cat" onclick="transgressive()">
-
+<div id="container">
+    <div id="cat"></div>
 </div>
+<script>
+  document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+  }, false);
+
+  var cat = document.getElementById("cat");
+
+  var co = 0;
+  window.transgressive = function () {
+    co++;
+    var w = window.innerWidth - 100;
+    var h = window.innerHeight - 100;
+
+    cat.style.top = Math.floor(Math.random() * h) + "px";
+    cat.style.left = Math.floor(Math.random() * w) + "px";
+    cat.innerText = co
+  }
+
+  cat.addEventListener('touchmove', transgressive)
+
+
+</script>
 </body>
 </html>
