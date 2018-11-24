@@ -14,7 +14,9 @@
         #cat {
             width: 100px;
             height: 100px;
-            background-color: green;
+            background-color: blue;
+            top: 0;
+            left: 0;
             position: relative;
         }
     </style>
@@ -31,7 +33,8 @@
   var cat = document.getElementById("cat");
 
   var co = 0;
-  window.transgressive = function () {
+  window.transgressive = function (e) {
+    console.log(e);
     co++;
     var w = window.innerWidth - 100;
     var h = window.innerHeight - 100;
